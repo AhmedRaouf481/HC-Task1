@@ -1,0 +1,11 @@
+<div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+    @for (note of notes; track $index) {
+        
+        <app-note-card [colors]="colors" (handleDeleteNote)="deleteNote($event)" [note]="note" style="justify-content: center;"/>
+    }
+    <button
+   class="text-white fixed bottom-16 right-16 rounded-full bg-slate-600 w-20 h-20"
+   (click)="addNote()">
+    Add
+  </button>
+</div>

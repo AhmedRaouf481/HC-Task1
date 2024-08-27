@@ -1,0 +1,43 @@
+<div
+  class="w-[300px h-[400px] p-4 rounded-md block px-3 py-2 text-base font-medium text-white"
+  [ngStyle]="{ backgroundColor: note.color }"
+>
+  <div class="p-4">
+    <input
+      class="title p-4 mt-4 w-full h-3 text-gray-900"
+      placeholder="Note title"
+      [(ngModel)]="note.title"
+
+      type="text"
+    />
+    <textarea
+      class="p-4 h-32 w-full text-gray-900 mt-4"
+      placeholder="Note Content"
+      [(ngModel)]="note.content"
+    >
+    </textarea>
+  </div>
+
+  <div class="flex items-center justify-between py-4">
+    <div class="date">
+      {{ note.date }}
+    </div>
+    <button
+      class="block rounded-md px-3 py-2 text-base font-medium text-white"
+      (click)="handleDelete(note.id)"
+    >
+      Delete
+    </button>
+  </div>
+  <div class="flex items-center justify-around py-4">
+    @for (color of colors; track $index) {
+
+    <button
+      class="rounded-full w-10 h-10"
+      [style.background-color]="color"
+      [style.border]="note.color === color ? '3px solid white' : 'inherit'"
+      (click)="changeBgColor(color)"
+    ></button>
+    }
+  </div>
+</div>
